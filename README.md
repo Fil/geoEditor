@@ -18,15 +18,14 @@ const GeoEditor = require('geoeditor')
 
 Or use a browser build directly:
 
-```javascript
+```html
 <script src="https://unpkg.com/geoeditor@1.0.0/geoeditor.min.js"></script> <!-- minified build -->
 <script src="https://unpkg.com/geoeditor@1.0.0/geoeditor.js"></script> <!-- dev build -->
 ```
 
-## API Reference
+## API Reference
 
-<a name="GeoEditor" href="#GeoEditor">#</a> new <b>GeoEditor</b>(<i>options</i>)
-· [Source](https://github.com/Fil/geoEditor/blob/master/index.js)
+<a name="newGeoEditor" href="#newGeoEditor">#</a> new <b>GeoEditor</b>(<i>options</i>) · [Source](https://github.com/Fil/geoEditor/blob/master/index.js)
 
 ...
 
