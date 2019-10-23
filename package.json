@@ -1,0 +1,49 @@
+{
+  "name": "geoeditor",
+  "version": "1.0.0",
+  "description": "GeoJSON feature editor",
+  "main": "geoeditor.js",
+  "module": "index.js",
+  "jsdelivr": "geoeditor.min.js",
+  "unpkg": "geoeditor.min.js",
+  "sideEffects": true,
+  "dependencies": {},
+  "devDependencies": {
+    "c8": "^5.0.4",
+    "esm": "^3.2.25",
+    "rollup": "^1.25.2",
+    "rollup-plugin-terser": "^5.1.2",
+    "standard": "^14.3.1",
+    "tape": "^4.11.0"
+  },
+  "scripts": {
+    "lint": "standard index.js test/test.js rollup.config.js",
+    "pretest": "npm run lint",
+    "test": "node -r esm test/test.js",
+    "cov": "c8 node -r esm test/test.js && c8 report -r html",
+    "build": "rollup -c",
+    "start": "rollup -cw",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "files": [
+    "index.js",
+    "geoeditor.js",
+    "geoeditor.min.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fil/geoEditor.git"
+  },
+  "keywords": [
+    "GeoJSON"
+  ],
+  "author": {
+    "name": "Philippe Rivière",
+    "url": "https://visionscarto.net"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fil/geoEditor/issues"
+  },
+  "homepage": "https://github.com/Fil/geoEditor#geoeditor"
+}

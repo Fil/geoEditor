@@ -1,0 +1,7 @@
+node_modules
+tmp
+*.log
+yarn.lock
+coverage
+geoeditor.js
+geoeditor.min.js
