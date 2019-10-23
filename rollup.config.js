@@ -14,7 +14,9 @@ const config = (file, plugins, format = 'umd') => ({
   },
   plugins: [
     resolve(),
-    commonjs(),
+    commonjs({
+      namedExports: { debounce: ['debounce'] }
+    }),
     ...plugins
   ]
 })

@@ -29,6 +29,13 @@ Or use a browser build directly:
 
 ...
 
+```javascript
+import { geoEditor } from './geoeditor.esm.js'
+const editor = geoEditor()
+const colorSelector = editor.colorPropertyView()
+document.querySelector('body').append(colorSelector)
+```
+
 ## Development
 
 ### Install and run
