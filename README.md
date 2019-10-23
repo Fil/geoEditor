@@ -6,26 +6,11 @@ https://observablehq.com/@fil/geoeditor
 
 ## Installing
 
-Install with NPM (`npm install geoeditor`) or Yarn (`yarn add geoeditor`), then:
 
-```javascript
-// import as an ES module
-import GeoEditor from 'geoeditor'
-
-// or require in Node / Browserify
-const GeoEditor = require('geoeditor')
-```
-
-Or use a browser build directly:
-
-```html
-<script src="https://unpkg.com/geoeditor@1.0.0/geoeditor.min.js"></script> <!-- minified build -->
-<script src="https://unpkg.com/geoeditor@1.0.0/geoeditor.js"></script> <!-- dev build -->
-```
 
 ## API Reference
 
-<a name="newGeoEditor" href="#newGeoEditor">#</a> new <b>GeoEditor</b>(<i>options</i>) · [Source](https://github.com/Fil/geoEditor/blob/master/index.js)
+<a name="newGeoEditor" href="#newGeoEditor">#</a> <b>geoEditor</b>(<i>options</i>) · [Source](https://github.com/Fil/geoEditor/blob/master/index.js)
 
 ...
 
