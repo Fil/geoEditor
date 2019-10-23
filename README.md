@@ -32,7 +32,7 @@ Or use a browser build directly:
 
 ## Development
 
-### Install and run
+### Install and run
 
 ```
 git clone git@github.com:Fil/geoEditor.git
@@ -41,7 +41,7 @@ npm install
 npm run start
 ```
 
-### Publishing a release
+### Publishing a release
 
 ```
 npm install
