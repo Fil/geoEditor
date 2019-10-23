@@ -3,5 +3,6 @@ tmp
 *.log
 yarn.lock
 coverage
+geoeditor.esm.js
 geoeditor.js
 geoeditor.min.js
