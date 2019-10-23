@@ -35,7 +35,8 @@
     "url": "git+https://github.com/Fil/geoEditor.git"
   },
   "keywords": [
-    "GeoJSON"
+    "GeoJSON",
+    "d3"
   ],
   "author": {
     "name": "Philippe Rivière",
