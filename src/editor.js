@@ -19,7 +19,11 @@ export default function geoEditor ({
   projection = projection || d3.geoMercator()
   options = options || { zoom: true }
 
-  const dispatch = d3.dispatch('update', 'data', 'zoomTo')
+  const dispatch = d3.dispatch(
+    'color-updated',
+    'update-color'
+  )
+
   const editor = {
     features,
     container,
@@ -33,7 +37,7 @@ export default function geoEditor ({
   // editor.buttonView = () => buttonView(editor)
   // editor.propertiesView = () => propertiesView(editor)
   // editor.propertyView = property => propertyView(editor, property)
-  editor.colorPropertyView = () => colorPropertyView(editor)
+  editor.colorPropertyView = () => colorPropertyView(dispatch, { color: '' })
   // editor.jsonView = () => jsonView(editor)
   // editor.tableView = properties => tableView(editor, properties)
 

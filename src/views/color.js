@@ -1,41 +1,39 @@
-import color2css from './../utils/color2css'
-import { rgb as d3Rgb } from 'd3-color'
-const d3 = {
-  rgb: d3Rgb
-}
-
-export default function colorPropertyView (editor) {
-  const { features, dispatch } = editor
-
-  function getTopColor () {
-    const selected = editor.selected()[0]
-    return selected ? d3.rgb(selected.properties.color).hex() : ''
-  }
-
-  const form = document.createElement('form')
+export function createInput () {
   const input = document.createElement('input')
   input.setAttribute('type', 'color')
-  form.append(input)
+  return input
+}
 
-  const el = form.elements[0]
-  el.value = getTopColor()
+export function validate (color) {
+  // TBD
+  // Also prepare the color? toLowercase? 'blue' to '#0000ff'?
+  return true
+}
 
-  el.addEventListener('input', listen)
+export function setColor (input) {
+  return function (color) {
+    // Avoid triggering an 'input' event if not necessary
+    if (validate(color) && color !== input.value) {
+      input.value = color
+    }
+  }
+}
 
-  dispatch.on('update.colorProperty', message => {
-    if (message !== 'colorProperty') el.value = getTopColor()
+export default function colorView (dispatch, { color = '' }) {
+  // Create
+  const input = createInput()
+
+  // Initialize
+  setColor(input)(color)
+
+  // Send event if input has changed
+  input.addEventListener('input', function (event) {
+    dispatch.call('update-color', null, input.value)
+    event.preventDefault()
   })
 
-  form.value = features
-  return form
+  // Listen to external update
+  dispatch.on('color-updated.colorView', setColor(input))
 
-  function listen (event) {
-    const selected = editor.selected()[0]
-    if (selected) {
-      const color = el.value
-      selected.properties.color = color2css(color)
-      dispatch.call('data', null, 'colorProperty')
-    }
-    event.preventDefault()
-  }
+  return input
 }

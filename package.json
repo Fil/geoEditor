@@ -16,6 +16,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "browser-env": "^3.2.6",
     "c8": "^5.0.4",
     "esm": "^3.2.25",
     "husky": "^3.0.9",
