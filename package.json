@@ -29,9 +29,9 @@
     "tape": "^4.11.0"
   },
   "scripts": {
-    "lint": "standard index.js test/test.js rollup.config.js",
+    "lint": "standard index.js test/**/*.js rollup.config.js",
     "pretest": "npm run lint",
-    "test": "node -r esm test/test.js",
+    "test": "tape -r esm test/**/*.spec.js",
     "cov": "c8 node -r esm test/test.js && c8 report -r html",
     "build": "rollup -c",
     "start": "rollup -cw",
