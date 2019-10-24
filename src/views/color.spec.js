@@ -5,9 +5,12 @@ import { dispatch as d3Dispatch } from 'd3-dispatch'
 const d3 = {
   dispatch: d3Dispatch
 }
-browserEnv(['document'])
 
-test('createInput creates a color input with empty init color', function (t) {
+// TODO: change the way to test browser functionalities
+// This way is not recommended: https://github.com/avajs/ava/blob/master/docs/recipes/browser-testing.md
+browserEnv(['document', 'CustomEvent'])
+
+test('createInput() creates a color <input> with empty init color', function (t) {
   const input = createInput()
   t.ok(input.nodeName && input.nodeName.toLowerCase() === 'input')
   t.ok(input.hasAttribute('type'))
@@ -16,14 +19,19 @@ test('createInput creates a color input with empty init color', function (t) {
   t.end()
 })
 
-test('setColor sets the color from hexadecimal input', function (t) {
+test('setColor(…) sets the color if input is hexadecimal color', function (t) {
   const input = createInput()
   const set = setColor(input)
   set('#0000ff')
   t.equal(input.value, '#0000ff')
   set('#00FF00')
   t.equal(input.value, '#00ff00')
-  // If input value is invalid, set black color
+  t.end()
+})
+
+test('setColor(…) sets black color if input is invalid', function (t) {
+  const input = createInput()
+  const set = setColor(input)
   set('blue')
   t.notEqual(input.value, 'blue')
   t.notEqual(input.value, '#0000ff')
@@ -31,7 +39,7 @@ test('setColor sets the color from hexadecimal input', function (t) {
   t.end()
 })
 
-test('validate always return true', function (t) {
+test('validate(…) always return true', function (t) {
   t.ok(setColor())
   t.ok(validate('blue'))
   t.ok(validate('#001122'))
@@ -39,16 +47,29 @@ test('validate always return true', function (t) {
 })
 
 // Integration test
-test('color view integration test', function (t) {
+test('colorView(dispatch) creates a color <input> with empty value', function (t) {
   const dispatch = d3.dispatch('color-updated', 'update-color')
   const input = colorView(dispatch, { color: '' })
   t.equal(input.value, '')
-  dispatch.call('color-updated', null, '#00FF00')
-  t.equal(input.value, '#00ff00')
-  // TBD: find a way to call the following test
-  // input.value = '#FF0000'
-  // dispatch.on('update-color', color => {
-  //   t.equal(color, '#ff0000')
-  // })
   t.end()
 })
+
+test('colorView(dispatch) value updates when a \'color-updated\' _type_ is received', function (t) {
+  const dispatch = d3.dispatch('color-updated', 'update-color')
+  const input = colorView(dispatch, { color: '' })
+  dispatch.call('color-updated', null, '#00FF00')
+  t.equal(input.value, '#00ff00')
+  t.end()
+})
+
+// // TODO find a way to test if event emit works
+// test('colorView(dispatch) fires a \'update-color\' _type_ when input is changed', function (t) {
+//   const dispatch = d3.dispatch('color-updated', 'update-color')
+//   const input = colorView(dispatch, { color: '' })
+//   let color
+//   dispatch.on('update-color', c => { color = c })
+//   input.value = '#FF0000'
+//   // Find a way to emit a 'change' Event now
+//   t.equal(color, '#ff0000')
+//   t.end()
+// })
