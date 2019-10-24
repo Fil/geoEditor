@@ -1,12 +1,8 @@
 import color2css from './../utils/color2css'
-import { Library } from '@observablehq/stdlib'
 import { rgb as d3Rgb } from 'd3-color'
 const d3 = {
   rgb: d3Rgb
 }
-
-const library = new Library()
-const html = library.html()
 
 export default function colorPropertyView (editor) {
   const { features, dispatch } = editor
@@ -16,9 +12,10 @@ export default function colorPropertyView (editor) {
     return selected ? d3.rgb(selected.properties.color).hex() : ''
   }
 
-  const form = html`
-    <form><input type="color" /></form>
-  `
+  const form = document.createElement('form')
+  const input = document.createElement('input')
+  input.setAttribute('type', 'color')
+  form.append(input)
 
   const el = form.elements[0]
   el.value = getTopColor()
