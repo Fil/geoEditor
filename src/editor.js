@@ -1,14 +1,14 @@
 import { dispatch as d3Dispatch } from 'd3-dispatch'
 import { geoMercator as d3GeoMercator } from 'd3-geo'
 import { debounce } from 'debounce'
-import colorPropertyView from './src/colorPropertyView'
+import colorPropertyView from './views/color'
 
 const d3 = {
   dispatch: d3Dispatch,
   geoMercator: d3GeoMercator
 }
 
-export function geoEditor ({
+export default function geoEditor ({
   features,
   container,
   render,

@@ -1,4 +1,4 @@
-import color2css from './color2css'
+import color2css from './../utils/color2css'
 import { Library } from '@observablehq/stdlib'
 import { rgb as d3Rgb } from 'd3-color'
 const d3 = {

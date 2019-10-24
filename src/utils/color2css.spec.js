@@ -1,5 +1,5 @@
 import { test } from 'tape'
-import color2css from '../src/color2css.js'
+import color2css from './color2css.js'
 
 test('color2css returns color name if found in lookup list', function (t) {
   t.equal(color2css('#800080'), 'purple')

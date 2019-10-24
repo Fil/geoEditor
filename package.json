@@ -29,10 +29,10 @@
     "tape": "^4.11.0"
   },
   "scripts": {
-    "lint": "standard index.js test/**/*.js rollup.config.js",
+    "lint": "standard index.js src/**/*.js rollup.config.js",
     "pretest": "npm run lint",
-    "test": "tape -r esm test/**/*.spec.js",
-    "cov": "c8 node -r esm test/test.js && c8 report -r html",
+    "test": "tape -r esm src/**/*.spec.js",
+    "cov": "c8 node -r esm src/**/*.spec.js && c8 report -r html",
     "build": "rollup -c",
     "start": "rollup -cw",
     "prepublishOnly": "npm test && npm run build",
