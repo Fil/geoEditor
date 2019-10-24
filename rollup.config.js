@@ -22,9 +22,9 @@ const config = (file, plugins, format = 'umd') => ({
 })
 
 export default [
-  config(`${meta.name}.esm.js`, [], 'esm'),
-  config(`${meta.name}.js`, []),
-  config(`${meta.name}.min.js`, [
+  config(`dist/${meta.name}.esm.js`, [], 'esm'),
+  config(`dist/${meta.name}.js`, []),
+  config(`dist/${meta.name}.min.js`, [
     terser({
       output: {
         preamble: `// ${meta.homepage} v${

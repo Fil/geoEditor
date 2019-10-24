@@ -39,10 +39,9 @@
     "release": "standard-version"
   },
   "files": [
-    "index.js",
-    "geoeditor.esm.js",
-    "geoeditor.js",
-    "geoeditor.min.js"
+    "dist/geoeditor.esm.js",
+    "dist/geoeditor.js",
+    "dist/geoeditor.min.js"
   ],
   "repository": {
     "type": "git",
