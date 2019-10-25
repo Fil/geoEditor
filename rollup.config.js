@@ -4,7 +4,7 @@ import { terser } from 'rollup-plugin-terser'
 import * as meta from './package.json'
 
 const config = (file, plugins, format = 'umd') => ({
-  input: 'index.js',
+  input: 'src/index.js',
   output: {
     name: 'GeoEditor',
     format,
