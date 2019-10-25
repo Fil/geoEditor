@@ -2,6 +2,7 @@ import { dispatch as d3Dispatch } from 'd3-dispatch'
 import { geoMercator as d3GeoMercator } from 'd3-geo'
 import { debounce } from 'debounce'
 import colorPropertyView from './views/color'
+import jsonView from './views/json'
 
 const d3 = {
   dispatch: d3Dispatch,
@@ -38,7 +39,7 @@ export default function geoEditor ({
   // editor.propertiesView = () => propertiesView(editor)
   // editor.propertyView = property => propertyView(editor, property)
   editor.colorPropertyView = () => colorPropertyView(dispatch, { color: '' })
-  // editor.jsonView = () => jsonView(editor)
+  editor.jsonView = () => jsonView(dispatch, { json: '{}' })
   // editor.tableView = properties => tableView(editor, properties)
 
   editor.selected = () => features.features.filter(d => d.selected)
