@@ -47,14 +47,14 @@ test('validate(…) always return true', function (t) {
 })
 
 // Integration test
-test('colorView(dispatch) creates a color <input> with empty value', function (t) {
+test('colorView(dispatch, {color=\'\'}) creates a color <input> with empty value', function (t) {
   const dispatch = d3.dispatch('color-updated', 'update-color')
   const input = colorView(dispatch, { color: '' })
   t.equal(input.value, '')
   t.end()
 })
 
-test('colorView(dispatch) value updates when a \'color-updated\' _type_ is received', function (t) {
+test('colorView(dispatch, {color=\'\'}) value updates when a \'color-updated\' _type_ is received', function (t) {
   const dispatch = d3.dispatch('color-updated', 'update-color')
   const input = colorView(dispatch, { color: '' })
   dispatch.call('color-updated', null, '#00FF00')
@@ -63,7 +63,7 @@ test('colorView(dispatch) value updates when a \'color-updated\' _type_ is recei
 })
 
 // // TODO find a way to test if event emit works
-// test('colorView(dispatch) fires a \'update-color\' _type_ when input is changed', function (t) {
+// test('colorView(dispatch, {color=\'\'}) fires a \'update-color\' _type_ when input is changed', function (t) {
 //   const dispatch = d3.dispatch('color-updated', 'update-color')
 //   const input = colorView(dispatch, { color: '' })
 //   let color
