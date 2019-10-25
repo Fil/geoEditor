@@ -40,7 +40,7 @@ test('setColor(…) sets black color if input is invalid', function (t) {
 })
 
 test('validate(…) always return true', function (t) {
-  t.ok(setColor())
+  t.ok(validate())
   t.ok(validate('blue'))
   t.ok(validate('#001122'))
   t.end()
