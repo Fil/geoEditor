@@ -9,8 +9,8 @@
   "sideEffects": false,
   "dependencies": {
     "d3-color": "^1.4.0",
-    "d3-dispatch": "^1.0.5",
-    "d3-geo": "^1.11.6",
+    "d3-dispatch": "^1.0.6",
+    "d3-geo": "^1.11.9",
     "debounce": "^1.2.0"
   },
   "devDependencies": {
@@ -19,13 +19,13 @@
     "browser-env": "^3.2.6",
     "c8": "^5.0.4",
     "esm": "^3.2.25",
-    "husky": "^3.0.9",
-    "rollup": "^1.25.2",
+    "husky": "^3.1.0",
+    "rollup": "^1.27.9",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.2",
     "standard": "^14.3.1",
-    "standard-version": "^7.0.0",
+    "standard-version": "^7.0.1",
     "tape": "^4.11.0"
   },
   "scripts": {
